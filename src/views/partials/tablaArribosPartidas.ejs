@@ -19,123 +19,127 @@
     $('#tablaArribosPartidas tbody').on('click', 'td', function() {
       alert(table.cell(this).data());
     });*/
+    $('#tablaArribosPartidas tbody').on('click', 'td.vuelTrip', function() {
+      var doc = table.cell(this).data();
+      document.getElementById('botonVuelosTrip').click();
+      $('#tablaResultadosTripulacionVuelos').DataTable({}).search(doc).draw();
+   
+    });
+
+    $("#botonCerrarTripulantesVuelo").click(function() {
+      $("#tablaResultadosTripulacionVuelos").dataTable().fnDestroy();
+    });
+
+    
+
+
   });
+  
 </script>
 
 <table id="tablaArribosPartidas" class="display table table-striped table-responsive" style="width:100%;">
   <thead>
-    <h4>Arribos & Partidas</h4>
+    <h4>EMPLEADOS</h4>
     <tr>
-      <th>Nro. Vuelo</th>
-      <th>Procedencia</th>
-      <th>Destino</th>
-      <th>Hora</th>
-      <th>Fecha</th>
-      <th>Estado</th>
-      <th>PuertaEmbarque</th>
-      <th>PuertaDesembarque</th>
-      <th>Aerolinea</th>
-      <th>Avion</th>
+      <th>D.N.I.</th>
+      <th>Nombres</th>
+      <th>Apellido</th>
+      <th>Sector</th>
+      <th>Cargo</th>
+      <th>Base</th>
+      <th>vuelos</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>AE1678</td>
-      <td>New York</td>
-      <td>Cordoba</td>
-      <td>15:56</td>
-      <td>23/11/20</td>
-      <td class="table-success">On time</td>
-      <td>-</td>
-      <td>-</td>
-      <td class="aerolinea">Aerolineas Argentinas</td>
-      <td>-</td>
+      <td>26719311</td>
+      <td>Lionel</td>
+      <td>Scaloneta</td>
+      <td>Aeropuerto</td>
+      <td>Piloto</td>
+      <td>Comodoro Rivadavia</td>
+      <td style="background-color:#00aae4;color:#fff;"class="vuelTrip">Ver vuelos del tripulante</td>
     </tr>
     <tr>
-      <td>IB3506</td>
-      <td>Madrid</td>
+      <td>28369159</td>
+      <td>Pablo</td>
+      <td>Aimor</td>
+      <td>Aeropuerto</td>
+      <td>Copiloto</td>
       <td>Cordoba</td>
-      <td>15:56</td>
-      <td>23/11/20</td>
-      <td class="table-danger">Delayed</td>
-      <td>-</td>
-      <td>-</td>
-      <td class="aerolinea">Iberia</td>
-      <td>-</td>
+      <td style="background-color:#00aae4;color:#fff;"class="vuelTrip">Ver vuelos del tripulante</td>
+
     </tr>
     <tr>
-      <td>RA3506</td>
-      <td>Dublin</td>
-      <td>Cordoba</td>
-      <td>22:46</td>
-      <td>23/11/20</td>
-      <td class="table-success">On time</td>
-      <td>-</td>
-      <td>-</td>
-      <td class="aerolinea">Ryan Air</td>
-      <td>-</td>
+      <td>24856397</td>
+      <td>Roberto</td>
+      <td>Ayali</td>
+      <td>Aeropuerto</td>
+      <td>Comisario de bordo</td>
+      <td>Buenos Aires</td>
+      <td style="background-color:#00aae4;color:#fff;"class="vuelTrip">Ver vuelos del tripulante</td>
+
     </tr>
     <tr>
-      <td>AE1678</td>
-      <td>New York</td>
-      <td>Cordoba</td>
-      <td>15:56</td>
-      <td>23/11/20</td>
-      <td class="table-success">On time</td>
-      <td>-</td>
-      <td>-</td>
-      <td class="aerolinea">Aerolineas Argentinas</td>
-      <td>-</td>
+      <td>36987156</td>
+      <td>Luis</td>
+      <td>Samuel</td>
+      <td>Aeropuerto</td>
+      <td>Auxiliar de bordo</td>
+      <td>Mendoza</td>
+      <td style="background-color:#00aae4;color:#fff;"class="vuelTrip">Ver vuelos del tripulante</td>
+
     </tr>
     <tr>
-      <td>AE1678</td>
-      <td>New York</td>
+      <td>38950456</td>
+      <td>Walter</td>
+      <td>Manna</td>
+      <td>Aeropuerto</td>
+      <td>Auxiliar de bordo</td>
       <td>Cordoba</td>
-      <td>15:56</td>
-      <td>23/11/20</td>
-      <td class="table-success">On time</td>
-      <td>-</td>
-      <td>-</td>
-      <td class="aerolinea">Aerolineas Argentinas</td>
-      <td>-</td>
+      <td style="background-color:#00aae4;color:#fff;"class="vuelTrip">Ver vuelos del tripulante</td>
     </tr>
     <tr>
-      <td>AE1678</td>
-      <td>New York</td>
+      <td>39150789</td>
+      <td>Camila</td>
+      <td>Barrios</td>
+      <td>Aeropuerto</td>
+      <td>Auxiliar de bordo</td>
       <td>Cordoba</td>
-      <td>15:56</td>
-      <td>23/11/20</td>
-      <td class="table-success">On time</td>
-      <td>-</td>
-      <td>-</td>
-      <td class="aerolinea">Aerolineas Argentinas</td>
-      <td>-</td>
+      <td style="background-color:#00aae4;color:#fff;"class="vuelTrip">Ver vuelos del tripulante</td>
     </tr>
     <tr>
-      <td>AE1678</td>
-      <td>New York</td>
-      <td>Cordoba</td>
-      <td>15:56</td>
-      <td>23/11/20</td>
-      <td class="table-success">On time</td>
-      <td>-</td>
-      <td>-</td>
-      <td class="aerolinea">Aerolineas Argentinas</td>
-      <td>-</td>
+    <td>26789236</td>
+    <td>Jose</td>
+    <td>Gonzalez</td>
+    <td>Administración</td>
+    <td>Gerente</td>
+    <td>--</td>
+    <td >--</td>
+    
+  </tr>
     </tr>
+    <td>23896547</td>
+    <td>Juan</td>
+    <td>Gomez</td>
+    <td>Administración</td>
+    <td>Administrativo</td>
+    <td>--</td>
+    <td >--</td>
+
+  </tr>
   </tbody>
   <tfoot>
     <tr>
-      <th>Nro. Vuelo</th>
-      <th>Procedencia</th>
-      <th>Destino</th>
-      <th>Hora</th>
-      <th>Fecha</th>
-      <th>Estado</th>
-      <th>PuertaEmbarque</th>
-      <th>PuertaDesembarque</th>
-      <th>Aerolinea</th>
-      <th>Avion</th>
+      <tr>
+        <th>D.N.I.</th>
+        <th>Nombres</th>
+        <th>Apellido</th>
+        <th>Sector</th>
+        <th>Cargo</th>
+        <th>Base</th>
+        <th>vuelos</th>
+      </tr>
     </tr>
   </tfoot>
 </table>

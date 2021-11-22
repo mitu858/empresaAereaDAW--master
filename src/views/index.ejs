@@ -28,7 +28,7 @@
           <a href="#services">Ver Menu</a>
         </div>
       </div>
-    </div>-}
+    </div>
   </div>
 
 
@@ -90,35 +90,35 @@
             </div>-->
            <div class="col-md-4">
               <div class="service-item">
-                <img src="img\3127369-travel\png\047-selfie.png" width="80" height="80" alt="">
-                <h4 style="color:#fff;">Arribos - Partidas</h4>
+                <img src="\img\3127369-travel\png\007-girl.png" width="80" height="80" alt="">
+                <h4 style="color:#fff;">Empleados</h4>
                 <div class="line-dec"></div>
-                <p>Arribos y Partidas del Aeropuerto.</p>
+                <p>Empleadoss de DAW Airlines.</p>
                 <div class="primary-button">
-                  <a href="#our-story">Ver</a>
-                </div>
-              </div>
-            </div>
-           <!----> <div class="col-md-4">
-              <div class="service-item">
-                <img src="img/3127369-travel/png/020-baggage.png" width="80" height="80" alt="">
-                <h4 style="color:#fff;">Servicios</h4>
-                <div class="line-dec"></div>
-                <p>Servicios brindados por el Aeropuerto.</p>
-                <!--Button trigger modal-->
-              <div class="primary-button">
-                  <a href="#contact-us">Ver Servicios</a>
+                  <a href="#our-story">Ver Empleados</a>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="service-item">
                 <img src="img/3127369-travel/png/003-diary.png" width="80" height="80" alt="">
-                <h4 style="color:#fff;">Novedades</h4>
+                <h4 style="color:#fff;">Pasajeros</h4>
                 <div class="line-dec"></div>
-                <p>Novedades del Aeropuerto.</p>
+                <p>Pasajeros de DAW Airlines.</p>
                 <div class="primary-button">
-                  <a href="#novedades">Ver Novedades</a>
+                  <a href="#novedades">Ver Pasajeros</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-item">
+                <img src="img\3127369-travel\png\047-selfie.png" width="80" height="80" alt="">
+                <h4 style="color:#fff;">Conectémonos</h4>
+                <div class="line-dec"></div>
+                <p>Contacto con DAW Airlines.</p>
+                <!--Button trigger modal-->
+              <div class="primary-button">
+                  <a href="#contact-us">Ver Contacto</a>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
       <div class="row">
         <div class="col-md-12" style="background-color:#fff;">
           <div class="wrapper">
-            <%include partials/tablaNoticias0.ejs%>
+            <%include partials/tablaNoticias.ejs%>
           </div>
         </div>
       </div>
@@ -205,13 +205,12 @@
     <div class="container" id="contact-us">
       <div class="row">
         <div class="col-md-12">
-          <img src="img/3127369-travel/png/009-airport.png" width="150" height="150" alt="">
-          <p style="font-size:60px;"><em>Aeropuerto</em> de Cordoba </p>
-          <p style="font-size:18px;"><em>Dirección:</em> Calle x - Ciudad de Cordoba</p>
-          <p style="font-size:18px;"><em>Telefono:</em> 0289-33255252</p>
-          <p style="font-size:18px;"><em>@mail:</em> aeropuerto@cordoba.com</p>
-          <p style="font-size:18px;"><a href="#" data-toggle="modal" data-target="#modalEmpresas"><em>Compañias Aereas</em></a></p>
-          <p style="font-size:18px;"><a href="#" data-toggle="modal" data-target="#modalSectores"><em>Sectores</em></a></p><br>
+          <img src="img\3127369-travel\png\018-airplane.png" width="150" height="150" alt="">
+          <p style="font-size:60px;"> DAW AIRLINES </p>
+          <p style="font-size:18px;">Dirección: Calle Rivadavia - Ciudad de Comodoro Rivadavia</p>
+          <p style="font-size:18px;">Telefono: 0297-4443484</p>
+          <p style="font-size:18px;">@mail: daw@airlines.com</p>
+          <br>
           <div class="primary-button">
             <a href="#services">Volver al Menu</a>
           </div>
@@ -224,7 +223,7 @@
           </ul>
           <p>Copyright &copy; 2021 Juan de la Fuente
 
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com"><em>TemplateMo</em></a></p>
+            - Design: <a rel="nofollow noopener" href="https://templatemo.com">TemplateMo</a></p>
         </div>
       </div>
     </div>
@@ -286,13 +285,14 @@
 <%include partials/modalCompanias.ejs%>
 <%include partials/modalTripulantesVuelo.ejs%>
 <%include partials/modalTripulantes.ejs%>
+<%include partials/modalTripulacionVuelos.ejs%>
 <%include partials/modalPasajerosVuelo.ejs%>
 <%include partials/modalPasajeros.ejs%>
 <%include partials/modalEmpresas.ejs%>
 <%include partials/modalSectores.ejs%>
 <%include partials/modalMultimedia.ejs%>
-<%include partials/modalAvionVuelo.ejs%>
 <%include partials/modalAvion.ejs%>
+<%include partials/modalAvionVuelo.ejs%>
 <div hidden>
 <%include partials/formVuelos.ejs%>
 <%include partials/formAvion.ejs%>

@@ -1,119 +1,126 @@
-<table id="example" class="display nowrap table table-striped ui celled table-responsive" style="width:100%">
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Nombre</th>
-      <th>Fecha</th>
-      <th>Resumen</th>
-      <th>Noticia</th>
-      <th>accion</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Vuelos y colectivos de larga distancia: cómo son los protocolos en Córdoba</td>
-      <td>Aeropuerto Cordoba</td>
-      <td>13/11/2020</td>
-      <td>Solo podrán viajar trabajadores esenciales o que requieran asistencia médica y deben contar con el certificado de circulación. Tampoco se requiere un hisopado ni realizar cuarentena.</td>
-      <td class="xxx">noticia completa ddddddddddddddddddddddddddd</td>
-      <td class="accion">
-        <div class="primary-button">
-          <a href="#novedades">Ver noticia</a>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Garrett</td>
-      <td>Winters</td>
-      <td>Accountant</td>
-      <td>Tokyo</td>
-      <td class="xxx">332322363</td>
-      <td class="accion">
-        <div class="primary-button">
-          <a href="#novedades">Ver noticia</a>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Ashton</td>
-      <td>Cox</td>
-      <td>Junior Technical Author</td>
-      <td>San Francisco</td>
-      <td>66</td>
-      <td class="accion">
-        <div class="primary-button">
-          <a href="#novedades">Ver noticia</a>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="primary-button">
-  <a href="#services">Volver al Menu</a>
-</div>
-
 <script>
-  var tablitaLoca = $('table.display').DataTable({
-    //"type": "column",
-    //responsive: true,
-    searching:false,
-    columnDefs: [{
-        responsivePriority: 1,
-        targets: 0
-      },
+  $(document).ready(function() {
+    $.noConflict();
+    var table = $('#tablaNoticias').DataTable({
+      searching: false,
+      //"order": [[ 3, 'asc' ],
+      "pageLength": 6,
+      "language": {
+        "lengthMenu": "Mostrando _MENU_ vuelos",
+        "zeroRecords": "No hay vuelos con esos criterios",
+        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay vuelos con esos criterios",
+        "infoFiltered": "(filtered from _MAX_ total records)"
+      }
+    });
+    /*$('#tablaArribosPartidas tbody').on('click', 'tr', function() {
+      alert(table.row(this).data());
+    });
+    $('#tablaArribosPartidas tbody').on('click', 'td', function() {
+      alert(table.cell(this).data());
+    });*/
+    $('#tablaNoticias tbody').on('click', 'td.vuelPas', function() {
+      var doc = table.cell(this).data();
+      document.getElementById('botonVuelosPas').click();
+      $('#tablaResultadosPasajerosVuelos').DataTable({}).search(doc).draw();
+   
+    });
 
-      {
-        "targets": [4],
-        "visible": false,
-        "searchable": false
-      }
-    ],
-    //$.noConflict();
-    responsive: {
-      details: {
-        display: $.fn.dataTable.Responsive.display.modal({
-          header: function(row) {
-            var data = row.data();
-            return 'Details for ' + data[0] + ' ' + data[1];
-          }
-        }),
-        renderer: $.fn.dataTable.Responsive.renderer.tableAll()
-      }
-    }
-  });
-  $('table.display tbody').on('click', 'td.accion', function() {
-    var noticia = tablitaLoca.row(this).data();
-    //alert(noticia[0]);
-    $('h1.titulo').text(noticia[0]);
-    $('div.fecha').text(noticia[2]);
-    $('h3.noticia').text(noticia[4]);
-    document.getElementById("modalNoti").click();
+    $("#botonCerrarPasajerosVuelo").click(function() {
+      $("#tablaResultadosPasajerosVuelos").dataTable().fnDestroy();
+    });
 
   });
+  
 </script>
 
-<a hidden id="modalNoti" data-toggle="modal" data-target="#modalNoticia">Buscar Compañia</a>
-<!-- Modal tabla de vuelos -->
-<div class="modal fade" id="modalNoticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLongTitle"><img src="img/3127369-travel/png/003-diary.png" width="30" height="30" alt=""> Noticia</h1>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h1 class="titulo"></h1>
-        <div class="fecha"></div>
-        <h3 class="noticia"></h3>
-      </div>
-      <div class="modal-footer">
-        <div id="boton" class="primary-button" data-dismiss="modal">
-          <!--a href="#companias">Cerrar</a-->
-          <a id="botonCerrarNoticia" href="#novedades" data-dismiss="modal">Cerrar</a>
+<table id="tablaNoticias" class="display table table-striped table-responsive" style="width:100%;">
+  <thead>
+    <h4>PASAJEROS</h4>
+              <tr>
+                <th>D.N.I.</th>
+                <th>Nombres</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Correo Electrónico</th>
+                <th>N° Pasajero Frecuente</th>
+                <th>Millas acumuladas</th>
+                <th>Vuelos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td >35718309</td>
+                <td>Juan</td>
+                <td>de la Hoya</td>
+                <td>17/08/1993</td>
+                <td>jdelahoya@hotmail.com</td>
+                <td>5435718309k</td>
+                <td>200</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td >38250384</td>
+                <td>Barbara</td>
+                <td>Descalza</td>
+                <td>01/04/1995</td>
+                <td>bdescalza@gmail.com</td>
+                <td>5438250384k</td>
+                <td>200</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td >24856397</td>
+                <td>Roberto</td>
+                <td>Zapallo</td>
+                <td>09/11/1975</td>
+                <td>rzapallo@gmail.com</td>
+                <td>5424856397k</td>
+                <td>200</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+
+              </tr>
+              <tr>
+                <td >23569874</td>
+                <td>Luis</td>
+                <td>Aventura</td>
+                <td>11/12/1955</td>
+                <td>laventura@gmail.com</td>
+                <td>5423569874k</td>
+                <td>200</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td>39789456</td>
+                <td>Walter</td>
+                <td>Olmo</td>
+                <td>07/04/1983</td>
+                <td>wolmo@gmail.com</td>
+                <td>5439789456k</td>
+                <td>200</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td>32156852</td>
+                <td>Wilmar</td>
+                <td>Barrios</td>
+                <td>26/08/1986</td>
+                <td>wbarrios@gmail.com</td>
+                <td>54321568526k</td>
+                <td>200</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+            <tfoot>
+                <th><strong>D.N.I.</strong></th>
+                <th><strong>Nombres</strong></th>
+                <th><strong>Apellidos</strong></th>
+                <th><strong>Fecha de Nacimiento</strong></th>
+                <th><strong>Correo Electrónico</strong></th>
+                <th><strong>N° Pasajero Frecuente</strong></th>
+                <th><strong>Vuelos</strong></th>
+                <th><strong>Millas Acumuladas</strong></th>
+            </tfoot>
+          </table>
+        <div class="primary-button">
+          <a href="#services">Volver al Menu</a>
         </div>
-      </div>
-    </div>
-  </div>
-</div>

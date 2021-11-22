@@ -1,0 +1,178 @@
+
+
+
+<script>
+  $(document).ready(function() {
+    //var vuelo = $("#numVuelo").val();
+    //var ciudadOrigen = $("#ciudadOrigen").val();
+    //var ciudadDestino = $("#ciudadDestino").val();
+    //var operacion = $("#operacion").val();
+    var table = $('#tablaResultadosTripulacionVuelos').DataTable({
+      "pageLength": 4,
+      "language": {
+        "lengthMenu": "Mostrando _MENU_ vuelos",
+        "zeroRecords": "No hay vuelos con esos criterios",
+        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay vuelos con esos criterios",
+        "infoFiltered": "(filtered from _MAX_ total records)"
+      },
+      "columnDefs": [{
+          "searchable": false,
+          "targets": 3
+        },
+        {
+          "searchable": false,
+          "targets": 4
+        },
+        {
+          "searchable": false,
+          "targets": 5
+        }, {
+          "searchable": false,
+          "targets": 6
+        },
+        {
+          "searchable": false,
+          "targets": 7
+        },
+        {
+          "searchable": false,
+          "targets": 8
+        }/*,
+        {
+          "searchable": false,
+          "targets": 9
+        }*/
+      ]
+    });
+
+
+ 
+
+
+  /*  $("#botonCerrar").click(function() {
+      $('#formVuelos').trigger("reset");
+      location.reload();
+      
+      /table.column(0).search("").draw();
+      table.column(1).search("").draw();
+      table.column(2).search("").draw();
+      $("#tablaResultadosVuelos").dataTable().fnDestroy();
+      $("#tablaResultadosVuelos0").dataTable().fnDestroy();
+      $("#tablaTripulantes").dataTable().fnDestroy();
+      $('#formVuelos').trigger("reset");
+      $("#operacion").prop('selectedIndex',0);
+      $("#numVuelo").val('');
+      $("#ciudad").val('');
+
+      $("#botonVuelos").hide();*
+
+    });*/
+
+
+  });
+</script>
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalVuelos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">Resultados de la busqueda</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tablaResultadosTripulacionVuelos" class="table table-striped ui celled table-responsive" style="width:100%;">
+          <thead>
+            <h4>Vuelos</h4>
+            <tr>
+              <th>Nro.Vuelo</th>
+              <th>Procedencia</th>
+              <th>Destino</th>
+              <th>Dias de Operación</th>
+              <th>Hora de Partida</th>
+              <th>Hora de Llegada</th>
+              <th>Avion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AE1678</td>
+              <td>Cordoba</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Lunes, Miercoles y Viernes</td>
+              <td>15:00</td>
+              <td>17:00</td>
+
+              <td>LV-2345</td>
+            </tr>
+            <tr>
+              <td>IB3506</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Cordoba</td>
+              <td>Lunes, Miercoles y Viernes</td>
+              <td>17:30</td>
+              <td>20:30</td>
+              <td >LV-2335</td>
+            </tr>
+            <tr>
+              <td>RA3506</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Buenos Aires</td>
+              <td>Todos los dias</td>
+              <td>23:00</td>
+              <td>01:00</td>
+              <td>LA-2222</td>
+            </tr>
+            <tr>
+              <td>AE1679</td>
+              <td>Buenos Aires</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Todos los dias</td>
+              <td>20:30</td>
+              <td>22:30</td>
+              <td>LA-2223</td>
+            </tr>
+            <tr>
+              <td>AE1680</td>
+              <td>Mendoza</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Martes, Jueves y Sábados</td>
+              <td>13:00</td>
+              <td>16:30</td>
+              <td >LO-1239</td>
+            </tr>
+            <tr>
+              <td>AE1681</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Mendoza</td>
+              <td>Martes, Jueves y Sábados</td>
+              <td>17:00</td>
+              <td>20:30</td>
+              <td>LE-1133</td>
+            </tr>
+            <tr>
+              <td>AE1682</td>
+              <td>Esquel</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Domingo</td>
+              <td>15:00</td>
+              <td>16:00</td>
+              <td>LA-2222</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+     <div class="modal-footer">
+        <div class="primary-button">
+          <a  id="botonCerrarTripulacionVuelos" data-dismiss="modal">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,7 +21,7 @@ app.get('/', function(req,res){
   res.render('index.ejs',{});//renderizo la vista dentro de views y le paso data de models mongoose
   });
 
-});
+
 
 //inicializar servidor
 const puerto=3001;

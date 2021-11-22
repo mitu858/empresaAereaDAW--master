@@ -15,26 +15,11 @@
       $("#botonBuscarMultimedia").show();
       tableMultimedia.column(0).search(this.value).draw();
     });
-    /*$('#fecha').on('change', function() {
-      $("#botonBuscarMultimedia").show();
-      tableMultimedia.column(1).search(this.value).draw();
-    });*/
 
     $("#botonCerrarMultimedia").click(function() {
       $('#formMultimedia').trigger("reset");
       location.reload();
     });
-    /*$('#empresa').on('keyup', function() {
-      tableMultimedia.search(this.value).draw();
-    });*/
-    //table.column( 0 ).search($("#numVuelo").val()).column( 1 ).search($("#ciudad").val()).draw();
-    /*"aoColumns": [
-               { "sName": "Nro. Vuelo" },
-               { "sName": "Procedencia" },
-               { "sName": "Destino" }
-           ]
-       } );
-       table.fnMultiFilter( { "Nro. Vuelo":$('#numVuelo').val(), "Procedencia":$('#ciudad') } );*/
 
 
   $('#formMultimedia').on('submit', function(e) {
@@ -50,9 +35,9 @@
 
   $('#tablaMultimedia tbody').on('click', 'td.mat', function() {
       var avion = tableMultimedia.cell(this).data();
-      //matriculaAvion
+
       document.getElementById('avioncito').click();
-      //$("#tablaTripulantes").dataTable().fnDestroy();
+ 
 
   $('#tablaAvion').DataTable({}).search(avion).draw();
 
@@ -63,7 +48,7 @@
     });
 
 
-  });
+});
 
 </script>
 <!-- Modal tabla de vuelos -->
