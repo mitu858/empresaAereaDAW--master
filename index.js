@@ -1,9 +1,9 @@
 const express=require('express');
-const engine=require('ejs-mate');
-const path=require('path');
+//const engine=require('ejs-mate');
+path=require('path');
 
 //inicializaciones
-const app=express();//inicializo express
+app=express();//inicializo express
 
 //settings
 //app.use(express.static(path.join(__dirname,'assets')));//enlaces a la carpeta assets
@@ -24,7 +24,9 @@ app.get('/', function(req,res){
 
 
 //inicializar servidor
-const puerto=3001;
+puerto=process.env.PORT || 3000;
+
+
 app.listen(puerto,function(){
   console.log('NODEJS:Servidor iniciado en el puerto: '+puerto);
 });
