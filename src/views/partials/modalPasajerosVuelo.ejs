@@ -1,0 +1,109 @@
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalPasajerosVuelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLongTitle">Detalle Pasajeros</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table id="tablaPasajerosVuelo" class="table table-striped ui celled" style="width:100%;">
+            <thead>
+              <h4>Pasajeros</h4>
+              <tr>
+                <th>D.N.I.</th>
+                <th>Nombres</th>
+                <th>Apellido</th>
+                <th>Asiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dniPas">35718309</td>
+                <td>Juan</td>
+                <td>de la Hoya</td>
+                <td>13B</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dniPas">38250384</td>
+                <td>Barbara</td>
+                <td>Descalza</td>
+                <td>15A</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dniPas">24856397</td>
+                <td>Roberto</td>
+                <td>Zapallo</td>
+                <td>23A</td>
+
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dniPas">23569874</td>
+                <td>Luis</td>
+                <td>Aventura</td>
+                <td>36B</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dniPas">39789456</td>
+                <td>Walter</td>
+                <td>Olmo</td>
+                <td>25B</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dniPas">32156852</td>
+                <td>Wilmar</td>
+                <td>Barrios</td>
+                <td>01A</td>
+              </tr>
+            <tfoot>
+                <th><strong>D.N.I.</strong></th>
+                <th><strong>Nombres</strong></th>
+                <th><strong>Apellidos</strong></th>
+                <th><strong>Asiento</strong></th>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <div class="primary-button">
+            <a id="botonCerrarPasajerosVuelo" data-dismiss="modal">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    $(document).ready(function() {
+      var table = $('#tablaPasajerosVuelo').DataTable({
+        "pageLength": 4,
+        "language": {
+          "lengthMenu": "Mostrando _MENU_ vuelos",
+          "zeroRecords": "No hay vuelos con esos criterios",
+          "info": "Mostrando pagina _PAGE_ de _PAGES_",
+          "infoEmpty": "No hay vuelos con esos criterios",
+          "infoFiltered": "(filtered from _MAX_ total records)"
+        },
+
+      });
+  
+  
+  
+  
+      $('#tablaPasajerosVuelo tbody').on('click', 'td.dniPas', function() {
+        var doc = table.cell(this).data();
+        document.getElementById('pasajerito').click();
+        $('#tablaPasajeros').DataTable({}).search(doc).draw();
+     
+      });
+  
+      $("#botonCerrarTripulantes").click(function() {
+        $("#tablaPasajeros").dataTable().fnDestroy();
+      });
+  
+    });
+  
+    </script>
+  
+  

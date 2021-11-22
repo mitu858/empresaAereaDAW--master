@@ -1,0 +1,144 @@
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalAvionVuelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">Detalles del Avion</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tablaAvionVuelo" class="table table-striped ui celled" style="width:100%;">
+          <thead>
+            <h4>Avion</h4>
+            <tr>
+              <th>Matricula</th>
+              <th>Fabricante</th>
+              <th>Modelo</th>
+              <th>Capacidad de pasajeros</th>
+              <th>Fecha de entrada en servicio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>LV-2345</td>
+              <td>Boeing</td>
+              <td>737-700</td>
+              <td>149</td>
+              <td>15/01/2015</td>
+            </tr>
+            <tr>
+              <td>LV-2335</td>
+              <td>Airbus</td>
+              <td>A320</td>
+              <td>185</td>
+              <td>20/06/2006</td>
+            </tr>
+            <tr>
+              <td>LA-2222</td>
+              <td>Embraer</td>
+              <td>E-190</td>
+              <td>96</td>
+              <td>01/03/2010</td>
+            </tr>
+            <tr>
+              <td>LA-2223</td>
+              <td>Boeing</td>
+              <td>737-700</td>
+              <td>149</td>
+              <td>15/01/2015</td>
+            </tr>
+            <tr>
+              <td>LV-3335</td>
+              <td>Airbus</td>
+              <td>A320</td>
+              <td>185</td>
+              <td>20/06/2006</td>
+            </tr>
+            <tr>
+              <td>LV-2239</td>
+              <td>Embraer</td>
+              <td>E-190</td>
+              <td>96</td>
+              <td>01/03/2010</td>
+            </tr>
+            <tr>
+              <td>LO-1239</td>
+              <td>Boeing</td>
+              <td>737-700</td>
+              <td>149</td>
+              <td>15/01/2015</td>
+            </tr>
+            <tr>
+              <td>LO-1233</td>
+              <td>Airbus</td>
+              <td>A320</td>
+              <td>185</td>
+              <td>20/06/2006</td>
+            </tr>
+            <tr>
+              <td>LE-1133</td>
+              <td>Embraer</td>
+              <td>E-190</td>
+              <td>96</td>
+              <td>01/03/2010</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th><strong>Matricula</strong></th>
+              <th><strong>Fabricante</strong></th>
+              <th><strong>Modelo</strong></th>
+              <th><strong>Capacidad de pasajeros</strong></th>
+              <th><strong>Fecha de entrada en servicio</strong></th>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div id="boton" class="primary-button" data-dismiss="modal">
+          <!--a href="#companias">Cerrar</a-->
+          <a id="botonCerrarAvionVuelo" data-dismiss="modal">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<script>
+  $(document).ready(function() {
+    var table = $('#tablaAvion').DataTable({
+      /*columnDefs: [
+            {
+                "targets": [ 0],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 2 ],
+                "visible": false
+            }
+        ],*/
+      searching: true,
+    });
+    /*$(".valorCompania").click(function() {
+      //var divs = document.getElementById("valorCompania").innerHTML;
+      //var dataCompania=aerolinea;
+      //alert(divs);
+      //table.search(dataCompania).draw();
+      var href = $(".valorCompania").attr('href');
+      alert(href);
+      table.search(href).draw();
+    })*/
+    /*$('#nombreCompania').on('change', function() {
+      var nombre = $("#nombreCompania option:selected").text();
+      table.search(nombre).draw();
+    });
+    $('#boton').click(function() {
+      $('#nombreCompania').val('Selecciona la aerolinea');
+    });
+    $('#formCompanias').on('submit', function(e) {
+      e.preventDefault();
+    });*/
+  });
+</script-->

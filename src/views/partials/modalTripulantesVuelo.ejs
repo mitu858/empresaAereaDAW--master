@@ -1,0 +1,128 @@
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalTripulantesVuelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLongTitle">Detalle Tripulacion</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table id="tablaTripulantesVuelo" class="table table-striped ui celled" style="width:100%;">
+            <thead>
+              <h4>Tripulación</h4>
+              <tr>
+                <th>D.N.I.</th>
+                <th>Nombres</th>
+                <th>Apellido</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dni" >26719311</td>
+                <td>Lionel</td>
+                <td>Scaloneta</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dni">28369159</td>
+                <td>Pablo</td>
+                <td>Aimor</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;"class="dni" >24856397</td>
+                <td>Roberto</td>
+                <td>Ayali</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dni">36987156</td>
+                <td>Luis</td>
+                <td>Samuel</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dni">38950456</td>
+                <td>Walter</td>
+                <td>Manna</td>
+              </tr>
+              <tr>
+                <td style="background-color:#00aae4;color:#fff;" class="dni">39150789</td>
+                <td>Camila</td>
+                <td>Barrios</td>
+              </tr>
+            </tbody>
+            <tfoot>
+                <th><strong>D.N.I.</strong></th>
+                <th><strong>Nombres</strong></th>
+                <th><strong>Apellidos</strong></th>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <div class="primary-button">
+            <a id="botonCerrarTripulantesVuelo" data-dismiss="modal">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+  $(document).ready(function() {
+    var table = $('#tablaTripulantesVuelo').DataTable({
+      "pageLength": 4,
+      "language": {
+        "lengthMenu": "Mostrando _MENU_ vuelos",
+        "zeroRecords": "No hay vuelos con esos criterios",
+        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay vuelos con esos criterios",
+        "infoFiltered": "(filtered from _MAX_ total records)"
+      },
+      "columnDefs": [{
+          "searchable": false,
+          "targets": 2
+        }/*,
+        {
+          "searchable": false,
+          "targets": 4
+        },
+        {
+          "searchable": false,
+          "targets": 5
+        }, {
+          "searchable": false,
+          "targets": 6
+        },
+        {
+          "searchable": false,
+          "targets": 7
+        },
+        {
+          "searchable": false,
+          "targets": 8
+        },
+        {
+          "searchable": false,
+          "targets": 9
+        }*/
+      ]
+    });
+
+
+
+
+    $('#tablaTripulantesVuelo tbody').on('click', 'td.dni', function() {
+      var doc = table.cell(this).data();
+      document.getElementById('tripulancito').click();
+      $('#tablaTripulantes').DataTable({}).search(doc).draw();
+   
+    });
+
+    $("#botonCerrarTripulantes").click(function() {
+      $("#tablaTripulantes").dataTable().fnDestroy();
+    });
+
+  });
+
+  </script>
+
+  

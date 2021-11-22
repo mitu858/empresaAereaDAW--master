@@ -1,0 +1,144 @@
+<script>
+  $(document).ready(function() {
+    $.noConflict();
+    var table = $('#tablaArribosPartidas').DataTable({
+      searching: false,
+      //"order": [[ 3, 'asc' ],
+      "pageLength": 6,
+      "language": {
+        "lengthMenu": "Mostrando _MENU_ vuelos",
+        "zeroRecords": "No hay vuelos con esos criterios",
+        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay vuelos con esos criterios",
+        "infoFiltered": "(filtered from _MAX_ total records)"
+      }
+    });
+    /*$('#tablaArribosPartidas tbody').on('click', 'tr', function() {
+      alert(table.row(this).data());
+    });
+    $('#tablaArribosPartidas tbody').on('click', 'td', function() {
+      alert(table.cell(this).data());
+    });*/
+  });
+</script>
+
+<table id="tablaArribosPartidas" class="display table table-striped table-responsive" style="width:100%;">
+  <thead>
+    <h4>Arribos & Partidas</h4>
+    <tr>
+      <th>Nro. Vuelo</th>
+      <th>Procedencia</th>
+      <th>Destino</th>
+      <th>Hora</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>PuertaEmbarque</th>
+      <th>PuertaDesembarque</th>
+      <th>Aerolinea</th>
+      <th>Avion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AE1678</td>
+      <td>New York</td>
+      <td>Cordoba</td>
+      <td>15:56</td>
+      <td>23/11/20</td>
+      <td class="table-success">On time</td>
+      <td>-</td>
+      <td>-</td>
+      <td class="aerolinea">Aerolineas Argentinas</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>IB3506</td>
+      <td>Madrid</td>
+      <td>Cordoba</td>
+      <td>15:56</td>
+      <td>23/11/20</td>
+      <td class="table-danger">Delayed</td>
+      <td>-</td>
+      <td>-</td>
+      <td class="aerolinea">Iberia</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>RA3506</td>
+      <td>Dublin</td>
+      <td>Cordoba</td>
+      <td>22:46</td>
+      <td>23/11/20</td>
+      <td class="table-success">On time</td>
+      <td>-</td>
+      <td>-</td>
+      <td class="aerolinea">Ryan Air</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>AE1678</td>
+      <td>New York</td>
+      <td>Cordoba</td>
+      <td>15:56</td>
+      <td>23/11/20</td>
+      <td class="table-success">On time</td>
+      <td>-</td>
+      <td>-</td>
+      <td class="aerolinea">Aerolineas Argentinas</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>AE1678</td>
+      <td>New York</td>
+      <td>Cordoba</td>
+      <td>15:56</td>
+      <td>23/11/20</td>
+      <td class="table-success">On time</td>
+      <td>-</td>
+      <td>-</td>
+      <td class="aerolinea">Aerolineas Argentinas</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>AE1678</td>
+      <td>New York</td>
+      <td>Cordoba</td>
+      <td>15:56</td>
+      <td>23/11/20</td>
+      <td class="table-success">On time</td>
+      <td>-</td>
+      <td>-</td>
+      <td class="aerolinea">Aerolineas Argentinas</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>AE1678</td>
+      <td>New York</td>
+      <td>Cordoba</td>
+      <td>15:56</td>
+      <td>23/11/20</td>
+      <td class="table-success">On time</td>
+      <td>-</td>
+      <td>-</td>
+      <td class="aerolinea">Aerolineas Argentinas</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Nro. Vuelo</th>
+      <th>Procedencia</th>
+      <th>Destino</th>
+      <th>Hora</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>PuertaEmbarque</th>
+      <th>PuertaDesembarque</th>
+      <th>Aerolinea</th>
+      <th>Avion</th>
+    </tr>
+  </tfoot>
+</table>
+<div class="primary-button">
+  <a href="#services">Volver al Menu</a>
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "aeropuerto",
+  "version": "1.0.0",
+  "description": "Trabajo para DAW",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon --watch src src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pablo Alanis",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "ejs-mate": "^3.0.0",
+    "express": "^4.17.1",
+    "footable": "^2.0.6",
+    "jquery": "^3.5.1",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

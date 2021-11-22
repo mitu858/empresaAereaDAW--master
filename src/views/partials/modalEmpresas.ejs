@@ -1,0 +1,77 @@
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalEmpresas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">Compañias Aereas</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tablaCompaniasEmpresa" class="table table-striped ui celled" style="width:100%;">
+          <thead>
+            <h4>Companias Aereas que operan en nuestro Aeropuerto</h4>
+            <tr>
+              <th>Nombre</th>
+              <th>Pais</th>
+              <th>Telefono</th>
+              <th>Web</th>
+              <th>Flota</th>
+              <th>Vuelos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aerolineas</td>
+              <td>Argentina</td>
+              <td>0800-345567</td>
+              <td>aerolineas.com.ar</td>
+              <td>Flota</td>
+              <td>Vuelos</td>
+            </tr>
+            <tr>
+              <td>Latam</td>
+              <td>Chile</td>
+              <td>0800-3458233</td>
+              <td>latam.com.cl</td>
+              <td>Flota</td>
+              <td>Vuelos</td>
+            </tr>
+            <tr>
+              <td>Ryan Air</td>
+              <td>Irlanda</td>
+              <td>0800-435632</td>
+              <td>airryan.com.ie</td>
+              <td>Flota</td>
+              <td>Vuelos</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th><strong>Nombre</strong></th>
+              <th><strong>Pais</strong></th>
+              <th><strong>Telefono</strong></th>
+              <th><strong>Web</strong></th>
+              <th><strong>Flota</strong></th>
+              <th><strong>Vuelos</strong></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div class="primary-button" data-dismiss="modal">
+          <a href="#contact-us">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    var table = $('#tablaCompaniasEmpresa').DataTable({
+      searching: true,
+    });
+  });
+</script>

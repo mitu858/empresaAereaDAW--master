@@ -1,0 +1,119 @@
+<table id="example" class="display nowrap table table-striped ui celled table-responsive" style="width:100%">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Nombre</th>
+      <th>Fecha</th>
+      <th>Resumen</th>
+      <th>Noticia</th>
+      <th>accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Vuelos y colectivos de larga distancia: cómo son los protocolos en Córdoba</td>
+      <td>Aeropuerto Cordoba</td>
+      <td>13/11/2020</td>
+      <td>Solo podrán viajar trabajadores esenciales o que requieran asistencia médica y deben contar con el certificado de circulación. Tampoco se requiere un hisopado ni realizar cuarentena.</td>
+      <td class="xxx">noticia completa ddddddddddddddddddddddddddd</td>
+      <td class="accion">
+        <div class="primary-button">
+          <a href="#novedades">Ver noticia</a>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Garrett</td>
+      <td>Winters</td>
+      <td>Accountant</td>
+      <td>Tokyo</td>
+      <td class="xxx">332322363</td>
+      <td class="accion">
+        <div class="primary-button">
+          <a href="#novedades">Ver noticia</a>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Ashton</td>
+      <td>Cox</td>
+      <td>Junior Technical Author</td>
+      <td>San Francisco</td>
+      <td>66</td>
+      <td class="accion">
+        <div class="primary-button">
+          <a href="#novedades">Ver noticia</a>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="primary-button">
+  <a href="#services">Volver al Menu</a>
+</div>
+
+<script>
+  var tablitaLoca = $('table.display').DataTable({
+    //"type": "column",
+    //responsive: true,
+    searching:false,
+    columnDefs: [{
+        responsivePriority: 1,
+        targets: 0
+      },
+
+      {
+        "targets": [4],
+        "visible": false,
+        "searchable": false
+      }
+    ],
+    //$.noConflict();
+    responsive: {
+      details: {
+        display: $.fn.dataTable.Responsive.display.modal({
+          header: function(row) {
+            var data = row.data();
+            return 'Details for ' + data[0] + ' ' + data[1];
+          }
+        }),
+        renderer: $.fn.dataTable.Responsive.renderer.tableAll()
+      }
+    }
+  });
+  $('table.display tbody').on('click', 'td.accion', function() {
+    var noticia = tablitaLoca.row(this).data();
+    //alert(noticia[0]);
+    $('h1.titulo').text(noticia[0]);
+    $('div.fecha').text(noticia[2]);
+    $('h3.noticia').text(noticia[4]);
+    document.getElementById("modalNoti").click();
+
+  });
+</script>
+
+<a hidden id="modalNoti" data-toggle="modal" data-target="#modalNoticia">Buscar Compañia</a>
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalNoticia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle"><img src="img/3127369-travel/png/003-diary.png" width="30" height="30" alt=""> Noticia</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1 class="titulo"></h1>
+        <div class="fecha"></div>
+        <h3 class="noticia"></h3>
+      </div>
+      <div class="modal-footer">
+        <div id="boton" class="primary-button" data-dismiss="modal">
+          <!--a href="#companias">Cerrar</a-->
+          <a id="botonCerrarNoticia" href="#novedades" data-dismiss="modal">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

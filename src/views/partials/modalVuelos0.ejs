@@ -1,0 +1,209 @@
+<script>
+  $(document).ready(function() {
+    var vuelo = $("#numVuelo").val();
+    var ciudadOrigen = $("#ciudadOrigen").val();
+    var ciudadDestino = $("#ciudadDestino").val();
+    //var operacion = $("#operacion").val();
+    var table = $('#tablaResultadosVuelos0').DataTable({
+      "pageLength": 4,
+      "language": {
+        "lengthMenu": "Mostrando _MENU_ vuelos",
+        "zeroRecords": "No hay vuelos con esos criterios",
+        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay vuelos con esos criterios",
+        "infoFiltered": "(filtered from _MAX_ total records)"
+      },
+      "columnDefs": [{
+          "searchable": false,
+          "targets": 3
+        },
+        {
+          "searchable": false,
+          "targets": 4
+        }/*,
+        {
+          "searchable": false,
+          "targets": 5
+        }, {
+          "searchable": false,
+          "targets": 6
+        },
+        {
+          "searchable": false,
+          "targets": 7
+        },
+        {
+          "searchable": false,
+          "targets": 8
+        },
+        {
+          "searchable": false,
+          "targets": 9
+        }*/
+      ]
+    });
+    if ($('#numVuelo').val().length <= 0 ) {
+      $("#botonVuelos0").hide();
+    }
+    //table.column(0).search(vuelo).draw();
+    // #myInput is a <input type="text"> element
+    $('#numVuelo').on('keyup', function() {
+      $("#botonVuelos0").show();
+      table.column(0).search(this.value).draw();
+    });
+    $('#ciudadOrigen').on('keyup', function() {
+      $("#botonVuelos0").show();
+      table.column(1).search(this.value).draw();
+    });
+    $('#ciudadDestino').on('keyup', function() {
+      $("#botonVuelos0").show();
+      table.column(2).search(this.value).draw();
+    });
+    /*$('#operacion').on('change', function() {
+      $("#botonVuelos").show();
+      var operacion = $("#operacion option:selected").text();
+      if (operacion=="Arribo") {
+        table.column(1).search("Cordoba").draw();
+      } else if (operacion=="Partida") {
+        table.column(2).search("Cordoba").draw();
+      }
+    })*/
+
+    $('#tablaResultadosVuelos0 tbody').on('click', 'td.fly', function() {
+      var fly = table.cell(this).data();
+      document.getElementById('botonVuelos').click();
+
+      $('#tablaResultadosVuelos').DataTable({}).search(fly).draw();
+    });
+
+    $("#botonCerrar").click(function() {
+      $("#tablaResultadosVuelos").dataTable().fnDestroy();
+    });
+
+    $("#botonCerrar0").click(function() {
+      $('#formVuelos').trigger("reset");
+      location.reload();
+      /*table.column(0).search("").draw();
+      table.column(1).search("").draw();
+      table.column(2).search("").draw();
+      $("#tablaResultadosVuelos").dataTable().fnDestroy();
+      $("#tablaResultadosVuelos0").dataTable().fnDestroy();
+      $("#tablaTripulantes").dataTable().fnDestroy();
+      $('#formVuelos').trigger("reset");
+      $("#operacion").prop('selectedIndex',0);
+      $("#numVuelo").val('');
+      $("#ciudad").val('');
+
+      $("#botonVuelos").hide();*/
+
+    });
+    //table.column( 0 ).search($("#numVuelo").val()).column( 1 ).search($("#ciudad").val()).draw();
+    /*"aoColumns": [
+               { "sName": "Nro. Vuelo" },
+               { "sName": "Procedencia" },
+               { "sName": "Destino" }
+           ]
+       } );
+       table.fnMultiFilter( { "Nro. Vuelo":$('#numVuelo').val(), "Procedencia":$('#ciudad') } );*/
+
+    $('#formVuelos').on('submit', function(e) {
+      e.preventDefault();
+      var vuelo = $("#numVuelo").val();
+      var ciudadOrigen = $("#ciudadOrigen").val();
+      var ciudadDestino = $("#ciudadDestino").val();
+      //var operacion = $("#operacion").val();
+    });
+  });
+</script>
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalVuelos0" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">Resultados de la busqueda</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tablaResultadosVuelos0" class="table table-striped ui celled table-responsive" style="width:100%;">
+          <thead>
+            <h4>Vuelos</h4>
+            <tr>
+              <th>Nro.Vuelo</th>
+              <th>Procedencia</th>
+              <th>Destino</th>
+              <th>Hora de Partida</th>
+              <th>Hora de Llegada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;" class="fly">AE1678</td>
+              <td>Cordoba</td>
+              <td>Comodoro Rivadavia</td>
+              <td>15:00</td>
+              <td>17:00</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;" class="fly">IB3506</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Cordoba</td>
+              <td>17:30</td>
+              <td>20:30</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;" class="fly">RA3506</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Buenos Aires</td>
+              <td>23:00</td>
+              <td>01:00</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;" class="fly"> AE1679</td>
+              <td>Buenos Aires</td>
+              <td>Comodoro Rivadavia</td>
+              <td>20:30</td>
+              <td>22:30</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;" class="fly">AE1680</td>
+              <td>Mendoza</td>
+              <td>Comodoro Rivadavia</td>
+              <td>13:00</td>
+              <td>16:30</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;" class="fly">AE1681</td>
+              <td>Comodoro Rivadavia</td>
+              <td>Mendoza</td>
+              <td>17:00</td>
+              <td>20:30</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;" class="fly">AE1682</td>
+              <td>Esquel</td>
+              <td>Comodoro Rivadavia</td>
+              <td>15:00</td>
+              <td>16:00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th><strong>Nro.Vuelo</strong></th>
+              <th><strong>Procedencia</strong></th>
+              <th><strong>Destino</strong></th>
+              <th><strong>Hora de Partida</strong></th>
+              <th><strong>Hora de Llegada</strong></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div class="primary-button">
+          <a  id="botonCerrar0" data-dismiss="modal">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

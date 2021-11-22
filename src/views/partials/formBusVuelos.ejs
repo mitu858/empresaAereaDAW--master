@@ -1,0 +1,32 @@
+<form id="formVuelos">
+  <div class="form-group">
+    <label for="numVuelo">Numero de Vuelo</label>
+    <input type="text" class="form-control" id="numVuelo" name="numVuelo" aria-describedby="emailHelp" placeholder="Ingresa el numero de vuelo">
+    <small id="emailHelp" class="form-text text-muted">Ingresa el numero de vuelo si es que lo sabes.</small>
+  </div>
+  <!--<div class="form-group">
+    <label for="operacion">Operación</label>
+    <select class="form-control" id="operacion" name="operacion">
+      <option disabled selected="selected">Selecciona una operación</option>
+      <option>Arribo</option>
+      <option>Partida</option>
+    </select>
+  </div>-->
+  <div class="form-group">
+    <label for="ciudadOrigen">Origen</label>
+    <input type="text" class="form-control" id="ciudadOrigen" name="ciudadOrigen" placeholder="Ingrese la Ciudad de Origen">
+  </div>
+  <div class="form-group">
+    <label for="ciudadDestino">Destino</label>
+    <input type="text" class="form-control" id="ciudadDestino" name="ciudadDestino" placeholder="Ingrese la Ciudad de Destino">
+  </div>
+  <div class="modal-footer">
+    <div class="primary-button">
+      <a id="botonVuelos0" href="#" data-toggle="modal" data-target="#modalVuelos0">Buscar Vuelos</a>
+    </div>
+    <a  hidden id="botonVuelos" href="#" data-toggle="modal" data-target="#modalVuelos">Busca</a>
+    <div class="primary-button">
+      <a href="#services">Volver al Menu</a>
+    </div>
+  </div>
+</form>

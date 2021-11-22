@@ -1,0 +1,159 @@
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalCompanias" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">Resultados de la busqueda</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tabla" class="table table-striped ui celled" style="width:100%;">
+          <thead>
+            <h4>Aviones</h4>
+            <tr>
+              <th>Nombre</th>
+              <th>Pais</th>
+              <th>Telefono</th>
+              <th>Web</th>
+              <th>Flota</th>
+              <th>Vuelos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Aerolineas Argentinas</td>
+              <td>Argentina</td>
+              <td>0800-345567</td>
+              <td>aerolineas.com.ar</td>
+              <td class="flota">Aerolineas Argentinas</td>
+              <td class="vuelos">Aerolineas Argentinas</td>
+            </tr>
+            <tr>
+              <td>Latam</td>
+              <td>Chile</td>
+              <td>0800-3458233</td>
+              <td>latam.com.cl</td>
+              <td class="flota">Latam</td>
+              <td class="vuelos">Latam</td>
+            </tr>
+            <tr>
+              <td>Ryan Air</td>
+              <td>Irlanda</td>
+              <td>0800-435632</td>
+              <td>airryan.com.ie</td>
+              <td class="flota">Ryan Air</td>
+              <td class="vuelos">Ryan Air</td>
+            </tr>
+            <tr>
+              <td>Iberia</td>
+              <td>España</td>
+              <td>0800-145677</td>
+              <td>iberia.com.es</td>
+              <td class="flota">Iberia</td>
+              <td class="vuelos">Iberia</td>
+            </tr>
+            <tr>
+              <td>American Airlines</td>
+              <td>EEUU</td>
+              <td>0800-7886543</td>
+              <td>americanairlines.com</td>
+              <td class="flota">American Airlines</td>
+              <td class="vuelos">American Airlines</td>
+            </tr>
+            <tr>
+              <td>Air New Zealand</td>
+              <td>Nueva Zelanda</td>
+              <td>0800-78811111</td>
+              <td>airnewzealand.com</td>
+              <td class="flota">Air New Zealand</td>
+              <td class="vuelos">Air New Zealand</td>
+            </tr>
+            <tr>
+              <td>Air Canada</td>
+              <td>Canada</td>
+              <td>0800-7344521</td>
+              <td>aircanada.com</td>
+              <td class="flota">Air Canada</td>
+              <td class="vuelos">Air Canada</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th><strong>Nombre</strong></th>
+              <th><strong>Pais</strong></th>
+              <th><strong>Telefono</strong></th>
+              <th><strong>Web</strong></th>
+              <th><strong>Flota</strong></th>
+              <th><strong>Vuelos</strong></th </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div class="primary-button">
+          <a id="botonCerrarCompanias" data-dismiss="modal">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    var table = $('#tabla').DataTable({
+      /*columnDefs: [
+            {
+                "targets": [ 0],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 2 ],
+                "visible": false
+            }
+        ],*/
+      searching: true,
+    });
+
+    $('#x').hide();
+
+    $('#tabla tbody').on('click', 'td.flota', function() {
+      var flota = table.cell(this).data();
+      $("#tablaAvion").dataTable().fnDestroy();
+      document.getElementById('avioncito').click();
+      $('#tablaAvion').DataTable({}).search(flota).draw();
+    });
+    $('#tabla tbody').on('click', 'td.vuelos', function() {
+      var vuelos = table.cell(this).data();
+      //alert(vuelos);
+      //("#tablaResultadosVuelos0").dataTable().fnDestroy();
+      document.getElementById('botonVuelos0').click();
+      $('#tablaResultadosVuelos0').DataTable({}).search(vuelos).draw();
+    });
+
+
+
+    /*$(".valorCompania").click(function() {
+      //var divs = document.getElementById("valorCompania").innerHTML;
+      //var dataCompania=aerolinea;
+      //alert(divs);
+      //table.search(dataCompania).draw();
+      var href = $(".valorCompania").attr('href');
+      alert(href);
+      table.search(href).draw();
+    })*/
+    $('#nombreCompania').on('change', function() {
+      $('#x').show();
+      var nombre = $("#nombreCompania option:selected").text();
+      table.search(nombre).draw();
+    });
+    $('#botonCerrarCompanias').click(function() {
+      $('#formCompanias').trigger("reset");
+      location.reload();
+    });
+    $('#formCompanias').on('submit', function(e) {
+      e.preventDefault();
+    });
+  });
+</script>

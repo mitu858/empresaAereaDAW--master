@@ -1,0 +1,130 @@
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalPasajerosVuelo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLongTitle">Detalle Pasajeros</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table id="tablaPasajeros" class="table table-striped ui celled" style="width:100%;">
+            <thead>
+              <h4>Pasajeros</h4>
+              <tr>
+                <th>D.N.I.</th>
+                <th>Nombres</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Correo Electrónico</th>
+                <th>N° Pasajero Frecuente</th>
+                <th>Vuelos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td >35718309</td>
+                <td>Juan</td>
+                <td>de la Hoya</td>
+                <td>17/08/1993</td>
+                <td>jdelahoya@hotmail.com</td>
+                <td>5435718309k</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td >38250384</td>
+                <td>Barbara</td>
+                <td>Descalza</td>
+                <td>01/04/1995</td>
+                <td>bdescalza@gmail.com</td>
+                <td>5438250384k</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td >24856397</td>
+                <td>Roberto</td>
+                <td>Zapallo</td>
+                <td>09/11/1975</td>
+                <td>rzapallo@gmail.com</td>
+                <td>5424856397k</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+
+              </tr>
+              <tr>
+                <td >23569874</td>
+                <td>Luis</td>
+                <td>Aventura</td>
+                <td>11/12/1955</td>
+                <td>laventura@gmail.com</td>
+                <td>5423569874k</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td>39789456</td>
+                <td>Walter</td>
+                <td>Olmo</td>
+                <td>07/04/1983</td>
+                <td>wolmo@gmail.com</td>
+                <td>5439789456k</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+              <tr>
+                <td>32156852</td>
+                <td>Wilmar</td>
+                <td>Barrios</td>
+                <td>26/08/1986</td>
+                <td>wbarrios@gmail.com</td>
+                <td>54321568526k</td>
+                <td style="background-color:#00aae4;color:#fff;" class="flyPas">Vuelos realizados</td>
+              </tr>
+            <tfoot>
+                <th><strong>D.N.I.</strong></th>
+                <th><strong>Nombres</strong></th>
+                <th><strong>Apellidos</strong></th>
+                <th><strong>Fecha de Nacimiento</strong></th>
+                <th><strong>Correo Electrónico</strong></th>
+                <th><strong>N° Pasajero Frecuente</strong></th>
+                <th><strong>Vuelos</strong></th>
+            </tfoot>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <div class="primary-button">
+            <a id="botonCerrarPasajeros" data-dismiss="modal">Cerrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<script>
+   $(document).ready(function() {
+    var table = $('#tablaPasajeros').DataTable({
+      "pageLength": 4,
+      "language": {
+        "lengthMenu": "Mostrando _MENU_ vuelos",
+        "zeroRecords": "No hay vuelos con esos criterios",
+        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+        "infoEmpty": "No hay vuelos con esos criterios",
+        "infoFiltered": "(filtered from _MAX_ total records)"
+      }
+    });
+
+
+
+
+    $('#tablaPasajerosVuelo tbody').on('click', 'td.flyPas', function() {
+      
+      document.getElementById('botonVuelos0').click();
+      $('#tablaResultadosVuelos').DataTable({}).search().draw();
+   
+    });
+
+    $("#botonCerrar").click(function() {
+      $("#tablaResultadosVuelos").dataTable().fnDestroy();
+    });
+
+  });
+
+</script>

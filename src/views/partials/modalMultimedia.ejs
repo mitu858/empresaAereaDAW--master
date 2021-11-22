@@ -1,0 +1,175 @@
+<script>
+  $(document).ready(function() {
+    var tableMultimedia = $('#tablaMultimedia').DataTable({
+      "pageLength": 5
+    });
+    $("#botonBuscarMultimedia").hide();
+    // #myInput is a <input type="text"> element
+    $('#empresa').on('change', function() {
+      $("#botonBuscarMultimedia").show();
+      var nombreEmpresa = $("#empresa option:selected").text();
+      //alert(nombreEmpresa);
+      tableMultimedia.column(1).search(nombreEmpresa).draw();
+    });
+    $('#avion').on('keyup', function() {
+      $("#botonBuscarMultimedia").show();
+      tableMultimedia.column(0).search(this.value).draw();
+    });
+    /*$('#fecha').on('change', function() {
+      $("#botonBuscarMultimedia").show();
+      tableMultimedia.column(1).search(this.value).draw();
+    });*/
+
+    $("#botonCerrarMultimedia").click(function() {
+      $('#formMultimedia').trigger("reset");
+      location.reload();
+    });
+    /*$('#empresa').on('keyup', function() {
+      tableMultimedia.search(this.value).draw();
+    });*/
+    //table.column( 0 ).search($("#numVuelo").val()).column( 1 ).search($("#ciudad").val()).draw();
+    /*"aoColumns": [
+               { "sName": "Nro. Vuelo" },
+               { "sName": "Procedencia" },
+               { "sName": "Destino" }
+           ]
+       } );
+       table.fnMultiFilter( { "Nro. Vuelo":$('#numVuelo').val(), "Procedencia":$('#ciudad') } );*/
+
+
+  $('#formMultimedia').on('submit', function(e) {
+      e.preventDefault();
+      //var fecha = $("#fecha").val();
+      var empresa = $("#empresaText").val();
+      var avion = $("#avion").val();
+    });
+
+
+
+
+
+  $('#tablaMultimedia tbody').on('click', 'td.mat', function() {
+      var avion = tableMultimedia.cell(this).data();
+      //matriculaAvion
+      document.getElementById('avioncito').click();
+      //$("#tablaTripulantes").dataTable().fnDestroy();
+
+  $('#tablaAvion').DataTable({}).search(avion).draw();
+
+    });
+  
+    $("#botonCerrarAvion").click(function() {
+      $("#tablaAvion").dataTable().fnDestroy();
+    });
+
+
+  });
+
+</script>
+<!-- Modal tabla de vuelos -->
+<div class="modal fade" id="modalMultimedia" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLongTitle">Resultados de la busqueda</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table id="tablaMultimedia" class="table table-striped ui celled" style="width:100%;">
+          <thead>
+            <h4>Avion</h4>
+            <tr>
+              <th>Matricula</th>
+              <th>Fabricante</th>
+              <th>Modelo</th>
+              <th>Capacidad de pasajeros</th>
+              <th>Fecha de entrada en servicio</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LV-2345</td>
+              <td>Boeing</td>
+              <td>737-700</td>
+              <td>149</td>
+              <td>15/01/2015</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LV-2335</td>
+              <td>Airbus</td>
+              <td>A320</td>
+              <td>185</td>
+              <td>20/06/2006</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LA-2222</td>
+              <td>Embraer</td>
+              <td>E-190</td>
+              <td>96</td>
+              <td>01/03/2010</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LA-2223</td>
+              <td>Boeing</td>
+              <td>737-700</td>
+              <td>149</td>
+              <td>15/01/2015</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LV-3335</td>
+              <td>Airbus</td>
+              <td>A320</td>
+              <td>185</td>
+              <td>20/06/2006</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LV-2239</td>
+              <td>Embraer</td>
+              <td>E-190</td>
+              <td>96</td>
+              <td>01/03/2010</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LO-1239</td>
+              <td>Boeing</td>
+              <td>737-700</td>
+              <td>149</td>
+              <td>15/01/2015</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LO-1233</td>
+              <td>Airbus</td>
+              <td>A320</td>
+              <td>185</td>
+              <td>20/06/2006</td>
+            </tr>
+            <tr>
+              <td style="background-color:#00aae4;color:#fff;"class="mat">LE-1133</td>
+              <td>Embraer</td>
+              <td>E-190</td>
+              <td>96</td>
+              <td>01/03/2010</td>
+            </tr>
+
+          </tbody>
+          <tfoot>
+            <tr>
+              <th><strong>Matricula</strong></th>
+              <th><strong>Fabricante</strong></th>
+              <th><strong>Modelo</strong></th>
+              <th><strong>Capacidad de pasajeros</strong></th>
+              <th><strong>Fecha de entrada en servicio</strong></th>
+          </tfoot>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div class="primary-button" data-dismiss="modal">
+          <a id="botonCerrarMultimedia" href="#portfolio">Cerrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
