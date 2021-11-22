@@ -8,7 +8,7 @@
     "dev": "nodemon --watch src src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Pablo Alanis",
+  "author": "Juan de la Fuente",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
