@@ -1,5 +1,5 @@
 {
-  "name": "daw_airlines",
+  "name": "aeropuerto",
   "version": "1.0.0",
   "description": "Trabajo para DAW",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon --watch src src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Juan de la Fuente",
+  "author": "Pablo Alanis",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

@@ -3,10 +3,8 @@ const engine = require('ejs-mate');
 const path = require('path');
 const bodyparser = require('body-parser');
 
-
-
 //inicializaciones
-app = express(); //inicializo express
+const app = express(); //inicializo express
 
 //settings
 app.use(express.static(path.join(__dirname, 'views'))); //enlaces a la carpeta assets
@@ -37,7 +35,7 @@ app.get('/', function(req, res) {
 });*/
 
 //inicializar servidor
-const puerto = process.env.PORT || 3000;
+const puerto = 3003;
 app.listen(puerto, function() {
   console.log('NODEJS:Servidor iniciado en el puerto: ' + puerto);
 });
