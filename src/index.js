@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 });*/
 
 //inicializar servidor
- puerto = process.env.PORT || 3000;
+const puerto = process.env.PORT || 3000;
 app.listen(puerto, function() {
   console.log('NODEJS:Servidor iniciado en el puerto: ' + puerto);
 });
